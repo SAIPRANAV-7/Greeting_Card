@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, OG SIS! ❤️</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #fce4ec;
+      --card-bg: #fffbf7;
+      --primary: #d81b60;
+      --primary-soft: #f48fb1;
+      --lavender: #e1bee7;
+      --peach: #ffe0b2;
+      --gold: #d4af37;
+      --text-dark: #37474f;
+      --text-muted: #78909c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f8bbd0, #e1bee7, #ffe0b2);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      perspective: 1500px;
+      color: var(--text-dark);
+    }
+
+    /* Ambient Floating Particles Background */
+    #ambient-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .ambient-petal {
+      position: absolute;
+      background: radial-gradient(circle, #f48fb1, #f8bbd0);
+      border-radius: 15px 0 15px 0;
+      opacity: 0.5;
+      animation: floatUp 10s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(105vh) rotate(0deg);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Main Container */
+    .book-container {
+      position: relative;
+      width: 420px;
+      height: 600px;
+      z-index: 10;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      border-radius: 18px;
+    }
+
+    /* Page Component */
+    .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 35px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      transform-origin: left center;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.8s;
+      backface-visibility: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      background-image: radial-gradient(circle at 10% 10%, rgba(225, 190, 231, 0.2), transparent 40%),
+                        radial-gradient(circle at 90% 90%, rgba(255, 224, 178, 0.2), transparent 40%);
+      box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.05);
+    }
+
+    .page.flipped {
+      transform: rotateY(-180deg);
+      pointer-events: none;
+    }
+
+    /* Typography */
+    .title-script {
+      font-family: 'Caveat', cursive;
+      font-size: 2.8rem;
+      color: var(--primary);
+      line-height: 1.1;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .subtitle-serif {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #6a1b9a;
+      margin-top: 5px;
+    }
+
+    .body-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #455a64;
+    }
+
+    .highlight-og {
+      font-weight: 700;
+      color: var(--primary);
+      background: linear-gradient(120deg, rgba(244,143,177,0.3) 0%, rgba(225,190,231,0.3) 100%);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Page Navigation Controls */
+    .nav-btn {
+      background: linear-gradient(45deg, var(--primary), var(--primary-soft));
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(216, 27, 96, 0.25);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(216, 27, 96, 0.35);
+    }
+
+    /* PAGE 1 SPECIAL STYLING */
+    #page-1 {
+      background: linear-gradient(135deg, #fff0f5, #f3e5f5);
+      border: 2px solid var(--gold);
+    }
+
+    .envelope-icon {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* PAGE 3 STYLING (Playful) */
+    .warning-box {
+      border: 2px dashed #ab47bc;
+      background: rgba(243, 229, 245, 0.5);
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      margin: 10px 0;
+    }
+
+    .sticker-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      font-size: 1.5rem;
+      margin: 5px 0;
+    }
+
+    /* PAGE 5 REVEAL LIST */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(10deg);
+      transition: all 0.6s ease;
+      margin: 8px 0;
+      font-weight: 600;
+      color: #6a1b9a;
+    }
+
+    .reveal-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* PAGE 7 CAKE & FINAL REVEAL */
+    .cake-container {
+      position: relative;
+      margin: 15px 0;
+      cursor: pointer;
+    }
+
+    .cake {
+      font-size: 4.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .flame {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 18px;
+      background: orange;
+      border-radius: 50% 50% 20% 20%;
+      box-shadow: 0 0 10px gold, 0 0 20px orange;
+      animation: flicker 0.1s infinite alternate;
+    }
+
+    .flame.extinguished {
+      display: none;
+    }
+
+    .smoke {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 15px;
+      background: rgba(150, 150, 150, 0.5);
+      border-radius: 10px;
+      opacity: 0;
+    }
+
+    .smoke.active {
+      animation: smokeRise 1.5s ease-out forwards;
+    }
+
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); }
+      100% { transform: translateX(-50%) scale(1.15); }
+    }
+
+    @keyframes smokeRise {
+      0% { opacity: 0.8; transform: translateX(-50%) translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-30px) scale(2); }
+    }
+
+    .final-banner {
+      display: none;
+      background: linear-gradient(45deg, #e91e63, #ab47bc);
+      color: white;
+      padding: 12px;
+      border-radius: 10px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      margin-top: 10px;
+      animation: popIn 0.5s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Decorative elements */
+    .decor {
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="ambient-particles"></div>
+
+  <div class="book-container">
+
+    <!-- PAGE 7: THE BIG REVEAL -->
+    <div class="page" id="page-7" style="z-index: 1;">
+      <div>
+        <div class="decor">✨ 🎂 ✨</div>
+        <h2 class="title-script" style="font-size: 2rem;">HAPPY BIRTHDAY, OG SIS! ❤️</h2>
+      </div>
+
+      <div class="cake-container" onclick="extinguishCandle()">
+        <div class="cake">
+          <div class="flame" id="flame"></div>
+          <div class="smoke" id="smoke"></div>
+          🎂
+        </div>
+      </div>
+
+      <div class="body-text" style="font-size: 0.82rem; line-height: 1.4;">
+        <p><strong>To my best friend. My partner in chaos. My forever supporter. My chosen sister. My OG SIS.</strong></p>
+        <p style="margin-top: 6px;">Here's to another year of crazy memories, endless laughter, stupid arguments, and unforgettable moments.</p>
+        <p style="margin-top: 6px; font-style: italic; color: #880e4f;">"You came into my life as a friend, but somewhere along the way, you became family."</p>
+      </div>
+
+      <div>
+        <button class="nav-btn" id="wish-btn" onclick="extinguishCandle()">Make a Wish ✨</button>
+        <div id="final-reveal" class="final-banner">
+          OG SIS FOREVER. ❤️<br>
+          <span style="font-size: 1rem; font-family: 'Poppins';">Happy Birthday to one of the most important people in my life.</span>
+        </div>
+      </div>
+
+      <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">
+        Love you always,<br><strong>Your Brother</strong>
+      </div>
+    </div>
+
+    <!-- PAGE 6: A PROMISE FROM YOUR BROTHER -->
+    <div class="page" id="page-6" style="z-index: 2;">
+      <div>
+        <div class="decor">🌟 🌸 🌟</div>
+        <h2 class="subtitle-serif">A Promise From Your Brother</h2>
+      </div>
+
+      <div class="body-text" style="font-size: 1.05rem; line-height: 1.8;">
+        <p>No matter where life takes us…</p>
+        <p>No matter how much things change…</p>
+        <p>No matter how many years pass…</p>
+      </div>
+
+      <div style="border-top: 1px solid var(--lavender); border-bottom: 1px solid var(--lavender); padding: 15px 0;">
+        <p class="title-script" style="font-size: 2.2rem; color: #880e4f;">You'll always have a brother in me. ❤️</p>
+        <p class="body-text" style="margin-top: 8px; font-size: 0.9rem;">Because once you're <span class="highlight-og">OG SIS</span>… you're OG SIS for life.</p>
+      </div>
+
+      <button class="nav-btn" onclick="nextPage(6)">Next: The Big Reveal 🎂</button>
+    </div>
+
+    <!-- PAGE 5: MY WISH FOR YOU -->
+    <div class="page" id="page-5" style="z-index: 3;">
+      <div>
+        <div class="decor">🦋 ✨ ✨ 🦋</div>
+        <h2 class="title-script">My Wish For You</h2>
+      </div>
+
+      <p class="body-text" style="font-size: 0.9rem;">
+        On your birthday, I wish you a life filled with happiness, success, laughter, unforgettable memories, and everything your heart truly wants.
+      </p>
+
+      <div style="width: 100%;">
+        <div class="reveal-item" id="wish-1">✨ Keep smiling.</div>
+        <div class="reveal-item" id="wish-2">🌸 Keep dreaming.</div>
+        <div class="reveal-item" id="wish-3">⭐ Keep being the amazing person you are.</div>
+        <div class="reveal-item" id="wish-4">❤️ And never forget how special you are.</div>
+      </div>
+
+      <button class="nav-btn" onclick="nextPage(5)">Next Page ✨</button>
+    </div>
+
+    <!-- PAGE 4: THANK YOU, OG SIS -->
+    <div class="page" id="page-4" style="z-index: 4;">
+      <div>
+        <div class="decor">💖 🌷 💖</div>
+        <h2 class="title-script">Thank You, OG SIS</h2>
+      </div>
+
+      <div class="body-text" style="text-align: left; font-size: 0.88rem; line-height: 1.5;">
+        <p style="margin-bottom: 8px;">Jokes aside, I genuinely want you to know how grateful I am for you.</p>
+        <p style="margin-bottom: 8px;">Thank you for being there through the good days, the bad days, the random days, and all the completely chaotic ones in between.</p>
+        <p style="margin-bottom: 8px;">Thank you for listening, understanding, supporting, annoying me, making me laugh, and simply being YOU.</p>
+      </div>
+
+      <div style="background: rgba(255, 224, 178, 0.4); padding: 10px; border-radius: 10px;">
+        <p class="body-text" style="font-weight: 600; color: #e65100; font-size: 0.9rem;">
+          "Life gave me a best friend… and somehow I ended up getting an OG SIS too." ❤️
+        </p>
+      </div>
+
+      <button class="nav-btn" onclick="nextPage(4)">Next Page ✨</button>
+    </div>
+
+    <!-- PAGE 3: THE OG SIS ENERGY -->
+    <div class="page" id="page-3" style="z-index: 5;">
+      <div>
+        <div class="sticker-container">⚠️ 🤪 👑</div>
+        <h2 class="title-script">The OG SIS Energy</h2>
+      </div>
+
+      <p class="body-text" style="font-size: 0.9rem;">
+        You're the person I can annoy without limits, argue with over the dumbest things, laugh with over absolutely nothing, and still know will have my back.
+      </p>
+
+      <div class="warning-box">
+        <p style="font-weight: 700; color: #8e24aa; margin-bottom: 3px;">⚠️ OFFICIAL NOTICE</p>
+        <p>You have officially earned the title of <strong>OG SIS</strong> — and unfortunately for you, there's no cancellation policy. 😂❤️</p>
+      </div>
+
+      <button class="nav-btn" onclick="nextPage(3)">Next Page ✨</button>
+    </div>
+
+    <!-- PAGE 2: HOW YOU BECAME MY OG SIS -->
+    <div class="page" id="page-2" style="z-index: 6;">
+      <div>
+        <div class="decor">🌸 ✨ 🌸</div>
+        <h2 class="subtitle-serif">How You Became My OG SIS</h2>
+      </div>
+
+      <div class="body-text" style="font-size: 0.9rem; line-height: 1.6;">
+        <p style="margin-bottom: 12px;">I honestly don't know when you stopped being just a friend and became my <span class="highlight-og">OG SIS</span>.</p>
+        <p>Somewhere between all the conversations, stupid jokes, random arguments, countless memories, and the absolute chaos we've created together… <em>you became family.</em></p>
+      </div>
+
+      <p class="title-script" style="font-size: 1.8rem;">And honestly, I wouldn't have it any other way. ❤️</p>
+
+      <button class="nav-btn" onclick="nextPage(2)">Next Page ✨</button>
+    </div>
+
+    <!-- PAGE 1: THE INTRO -->
+    <div class="page" id="page-1" style="z-index: 7;">
+      <div>
+        <div class="envelope-icon">💌</div>
+        <h1 class="title-script" style="font-size: 3rem;">To My OG SIS ❤️</h1>
+      </div>
+
+      <div class="body-text">
+        <p style="font-size: 1.1rem; font-style: italic;">"Some people enter your life as friends..."</p>
+        <p class="title-script" style="font-size: 2.2rem; color: #880e4f; margin-top: 10px;">"...and somehow become family."</p>
+      </div>
+
+      <button class="nav-btn" onclick="nextPage(1)" style="font-size: 1.1rem; padding: 12px 28px;">
+        Open Me ✨
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    // Create Background Petals dynamically
+    const particlesContainer = document.getElementById('ambient-particles');
+    const petalCount = 15;
+
+    for (let i = 0; i < petalCount; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'ambient-petal';
+      const size = Math.random() * 15 + 10;
+      petal.style.width = `${size}px`;
+      petal.style.height = `${size}px`;
+      petal.style.left = `${Math.random() * 100}%`;
+      petal.style.animationDelay = `${Math.random() * 8}s`;
+      petal.style.animationDuration = `${Math.random() * 5 + 7}s`;
+      particlesContainer.appendChild(petal);
+    }
+
+    // Page Navigation Logic
+    function nextPage(pageNumber) {
+      const currentPage = document.getElementById(`page-${pageNumber}`);
+      if (currentPage) {
+        currentPage.classList.add('flipped');
+      }
+
+      // Special triggers per page
+      if (pageNumber === 4) {
+        // Trigger Page 5 reveal lines sequentially
+        setTimeout(() => document.getElementById('wish-1').classList.add('visible'), 400);
+        setTimeout(() => document.getElementById('wish-2').classList.add('visible'), 1000);
+        setTimeout(() => document.getElementById('wish-3').classList.add('visible'), 1600);
+        setTimeout(() => document.getElementById('wish-4').classList.add('visible'), 2200);
+      }
+    }
+
+    // Interactive Candle Blowing Logic (Page 7)
+    let isExtinguished = false;
+
+    function extinguishCandle() {
+      if (isExtinguished) return;
+      isExtinguished = true;
+
+      const flame = document.getElementById('flame');
+      const smoke = document.getElementById('smoke');
+      const wishBtn = document.getElementById('wish-btn');
+      const finalReveal = document.getElementById('final-reveal');
+
+      flame.classList.add('extinguished');
+      smoke.classList.add('active');
+
+      wishBtn.style.display = 'none';
+      finalReveal.style.display = 'block';
+
+      // Launch Sparkle Burst Effect
+      createSparkles();
+    }
+
+    function createSparkles() {
+      const page7 = document.getElementById('page-7');
+      for (let i = 0; i < 30; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.innerHTML = ['✨', '💖', '🌸', '⭐'][Math.floor(Math.random() * 4)];
+        sparkle.style.position = 'absolute';
+        sparkle.style.left = '50%';
+        sparkle.style.top = '50%';
+        sparkle.style.fontSize = `${Math.random() * 20 + 10}px`;
+        sparkle.style.pointerEvents = 'none';
+        sparkle.style.transition = 'transform 1.5s ease-out, opacity 1.5s ease-out';
+        
+        page7.appendChild(sparkle);
+
+        const x = (Math.random() - 0.5) * 300;
+        const y = (Math.random() - 0.5) * 400;
+
+        setTimeout(() => {
+          sparkle.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 360}deg)`;
+          sparkle.style.opacity = '0';
+        }, 50);
+
+        setTimeout(() => sparkle.remove(), 1600);
+      }
+    }
+  </script>
+</body>
+</html>
